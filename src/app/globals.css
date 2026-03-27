@@ -1,0 +1,273 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5efe6;
+  --foreground: #12202b;
+  --muted: #5e6b76;
+  --surface: rgba(255, 255, 255, 0.68);
+  --surface-strong: rgba(255, 255, 255, 0.84);
+  --line: rgba(18, 32, 43, 0.12);
+  --line-strong: rgba(18, 32, 43, 0.18);
+  --accent: #2f8f86;
+  --accent-soft: #d7f5ef;
+  --accent-warm: #cf8a54;
+  --shadow-lg: 0 32px 80px rgba(12, 23, 34, 0.16);
+  --shadow-md: 0 20px 48px rgba(12, 23, 34, 0.1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-warm: var(--accent-warm);
+  --font-sans: var(--font-sora);
+  --font-mono: var(--font-plex-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  background:
+    radial-gradient(circle at top center, rgba(255, 255, 255, 0.95), transparent 34%),
+    linear-gradient(180deg, #fbf7f1 0%, #f5efe6 34%, #efe7db 100%);
+  color: var(--foreground);
+  font-family: var(--font-sora), sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(18, 32, 43, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 32, 43, 0.04) 1px, transparent 1px);
+  background-size: 96px 96px;
+  mask-image: radial-gradient(circle at center, black 36%, transparent 82%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.55;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(47, 143, 134, 0.16), transparent 24%),
+    radial-gradient(circle at 82% 16%, rgba(207, 138, 84, 0.18), transparent 22%),
+    radial-gradient(circle at 74% 76%, rgba(30, 77, 112, 0.16), transparent 26%);
+  filter: blur(16px);
+}
+
+main {
+  flex: 1;
+}
+
+section {
+  scroll-margin-top: 7rem;
+}
+
+a,
+button {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    opacity 180ms ease;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid rgba(47, 143, 134, 0.64);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: rgba(47, 143, 134, 0.22);
+}
+
+.page-shell {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.panel {
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+}
+
+.panel-strong {
+  background: var(--surface-strong);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow-lg);
+}
+
+.section-kicker {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(18, 32, 43, 0.56);
+}
+
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 999px;
+  padding: 0.95rem 1.4rem;
+  background: #12202b;
+  color: #f8f4ed;
+  box-shadow: 0 16px 30px rgba(18, 32, 43, 0.18);
+}
+
+.button-primary:hover {
+  transform: translateY(-1px);
+  background: #0d1720;
+}
+
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 999px;
+  padding: 0.95rem 1.4rem;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--foreground);
+  backdrop-filter: blur(16px);
+}
+
+.button-secondary:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0.5rem 0.85rem;
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 0.73rem;
+  letter-spacing: 0.08em;
+  color: rgba(18, 32, 43, 0.74);
+}
+
+.hero-stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  background: linear-gradient(160deg, #13232f 0%, #0b141b 74%);
+  color: #f4f7fb;
+  box-shadow: 0 34px 84px rgba(9, 16, 24, 0.28);
+}
+
+.hero-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(137, 239, 222, 0.26), transparent 28%),
+    radial-gradient(circle at 86% 16%, rgba(220, 162, 112, 0.22), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 42%);
+}
+
+.hero-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 78px 78px;
+  opacity: 0.22;
+  mask-image: radial-gradient(circle at center, black 28%, transparent 74%);
+}
+
+.soft-line {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.float-slow {
+  animation: drift 12s ease-in-out infinite;
+}
+
+.float-slower {
+  animation: drift-reverse 16s ease-in-out infinite;
+}
+
+.orbit-ring {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.glass-dark {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+}
+
+.metric-divider {
+  background: linear-gradient(180deg, transparent, rgba(18, 32, 43, 0.12), transparent);
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes drift-reverse {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 14px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .float-slow,
+  .float-slower {
+    animation: none;
+  }
+}
