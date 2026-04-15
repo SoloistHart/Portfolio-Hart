@@ -1,3 +1,20 @@
+export type WorkflowNode = {
+  label: string;
+  icon: string;
+  description: string;
+};
+
+export type WorkflowStage = {
+  label: string;
+  nodes: WorkflowNode[];
+};
+
+export type Workflow = {
+  title: string;
+  description: string;
+  stages: WorkflowStage[];
+};
+
 export type Project = {
   slug: string;
   label: string;
@@ -26,6 +43,7 @@ export type Project = {
     accentSoft: string;
     line: string;
   };
+  workflows?: Workflow[];
 };
 
 export const siteContent = {
@@ -331,6 +349,135 @@ export const projects: Project[] = [
       accentSoft: "rgba(247, 194, 144, 0.18)",
       line: "rgba(255, 237, 224, 0.16)",
     },
+    workflows: [
+      {
+        title: "Content Production Pipeline",
+        description:
+          "End-to-end automation from script generation through video creation and multi-platform publishing — the flagship pipeline that handles the full content lifecycle.",
+        stages: [
+          {
+            label: "Trigger",
+            nodes: [
+              { label: "Schedule", icon: "clock", description: "Runs on a cron schedule to batch-produce content at defined intervals." },
+              { label: "Webhook", icon: "webhook", description: "Accepts on-demand triggers from external tools or manual requests." },
+            ],
+          },
+          {
+            label: "Script generation",
+            nodes: [
+              { label: "AI Script Writer", icon: "sparkles", description: "GPT-powered script generation with tone, length, and format controls." },
+              { label: "Template Engine", icon: "file-text", description: "Applies content templates for consistent structure across outputs." },
+            ],
+          },
+          {
+            label: "Media creation",
+            nodes: [
+              { label: "Image Generator", icon: "image", description: "AI image creation pipeline with style presets and brand guidelines." },
+              { label: "Asset Processor", icon: "layers", description: "Resizes, crops, and formats assets for each target platform." },
+            ],
+          },
+          {
+            label: "Video assembly",
+            nodes: [
+              { label: "Video Compiler", icon: "video", description: "Assembles script, images, and audio into short-form video." },
+              { label: "Caption Generator", icon: "type", description: "Auto-generates captions and subtitle overlays for accessibility." },
+            ],
+          },
+          {
+            label: "Publishing",
+            nodes: [
+              { label: "Platform Router", icon: "share2", description: "Routes finished content to the correct platform-specific publishing flow." },
+              { label: "Multi-Account Publisher", icon: "globe", description: "Distributes across multiple accounts and platforms simultaneously." },
+            ],
+          },
+        ],
+      },
+      {
+        title: "Data Processing Pipeline",
+        description:
+          "Ingests raw data from APIs and spreadsheets, transforms and validates it, runs AI analysis, and pushes structured reports to stakeholders.",
+        stages: [
+          {
+            label: "Ingestion",
+            nodes: [
+              { label: "API Connector", icon: "database", description: "Pulls data from REST APIs and third-party services on schedule." },
+              { label: "Spreadsheet Import", icon: "file-spreadsheet", description: "Imports and parses CSV/XLSX files from shared drives or uploads." },
+            ],
+          },
+          {
+            label: "Transform",
+            nodes: [
+              { label: "Data Mapper", icon: "layers", description: "Normalizes and reshapes data into a consistent internal schema." },
+              { label: "Validator", icon: "filter", description: "Runs validation rules and flags anomalies before processing." },
+            ],
+          },
+          {
+            label: "AI analysis",
+            nodes: [
+              { label: "Sentiment Engine", icon: "brain", description: "Runs sentiment and tone analysis on text-heavy data fields." },
+              { label: "Summary Generator", icon: "sparkles", description: "Produces AI-generated summaries and key takeaways from datasets." },
+            ],
+          },
+          {
+            label: "Reporting",
+            nodes: [
+              { label: "Dashboard Builder", icon: "bar-chart", description: "Generates dashboard-ready metrics and chart data for visualization." },
+              { label: "PDF Exporter", icon: "file-text", description: "Compiles formatted PDF reports for executive distribution." },
+            ],
+          },
+          {
+            label: "Distribution",
+            nodes: [
+              { label: "Email Sender", icon: "mail", description: "Delivers reports to stakeholder inboxes on schedule." },
+              { label: "Slack Notifier", icon: "message-square", description: "Posts summaries and alerts to designated Slack channels." },
+            ],
+          },
+        ],
+      },
+      {
+        title: "Multi-Platform Distribution",
+        description:
+          "Takes finished content and adapts it for each platform's format requirements, schedules posts, and monitors publishing health.",
+        stages: [
+          {
+            label: "Content intake",
+            nodes: [
+              { label: "Content Receiver", icon: "zap", description: "Accepts content packages from upstream production workflows." },
+              { label: "Media Bundler", icon: "layers", description: "Packages media assets with metadata for platform-specific formatting." },
+            ],
+          },
+          {
+            label: "Platform adapters",
+            nodes: [
+              { label: "Short-Form Formatter", icon: "video", description: "Adapts content for TikTok, Reels, and Shorts format requirements." },
+              { label: "Long-Form Adapter", icon: "file-text", description: "Reformats content for YouTube, blog, and article publishing." },
+              { label: "Story Creator", icon: "image", description: "Generates story-format assets for Instagram and Facebook Stories." },
+            ],
+          },
+          {
+            label: "Scheduling",
+            nodes: [
+              { label: "Queue Manager", icon: "calendar", description: "Manages posting queues and optimal timing per platform." },
+              { label: "Calendar Sync", icon: "clock", description: "Syncs publishing schedule with the client's content calendar." },
+            ],
+          },
+          {
+            label: "Publishing",
+            nodes: [
+              { label: "Batch Publisher", icon: "send", description: "Executes scheduled posts across all platforms simultaneously." },
+              { label: "Error Handler", icon: "alert-circle", description: "Catches publishing failures and retries or escalates to the operator." },
+            ],
+          },
+          {
+            label: "Monitoring",
+            nodes: [
+              { label: "Analytics Tracker", icon: "activity", description: "Tracks post-publish metrics like views, engagement, and reach." },
+              { label: "Alert System", icon: "bell", description: "Fires alerts when posts underperform or encounter distribution issues." },
+            ],
+          },
+        ],
+      },
+    ],
   },
 ];
 

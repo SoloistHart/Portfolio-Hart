@@ -5,6 +5,7 @@ import { ProjectPreview } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { WorkflowDiagram } from "@/components/workflow-diagram";
 import { getProject, projects } from "@/lib/portfolio-data";
 import { notFound } from "next/navigation";
 
@@ -141,6 +142,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
           </div>
         </section>
+
+        {project.workflows && project.workflows.length > 0 && (
+          <section className="page-shell pt-24 sm:pt-28">
+            <Reveal>
+              <p className="section-kicker">Workflow architecture</p>
+              <h2 className="mt-5 mb-10 text-4xl font-semibold tracking-[-0.06em] text-foreground sm:text-5xl">
+                How the automation flows.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <WorkflowDiagram workflows={project.workflows} />
+            </Reveal>
+          </section>
+        )}
 
         <section className="page-shell pt-10 sm:pt-14">
           <div className="grid gap-6 lg:grid-cols-2">

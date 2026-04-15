@@ -360,3 +360,44 @@ button:focus-visible {
     animation: none;
   }
 }
+
+/* Workflow canvas */
+.workflow-canvas {
+  position: relative;
+  border-radius: 1.5rem;
+  border: 1px solid var(--line);
+  background-color: var(--surface);
+  background-image: radial-gradient(circle, var(--line-strong) 0.8px, transparent 0.8px);
+  background-size: 22px 22px;
+  backdrop-filter: blur(16px);
+}
+
+.workflow-stage-group {
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-opacity: 0.2;
+  border-radius: 1.1rem;
+  padding: 1rem;
+  min-width: 10rem;
+  max-width: 13rem;
+}
+
+.workflow-node {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.65rem;
+  padding: 0.55rem 0.7rem;
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  cursor: default;
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.workflow-node-active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  border-left-color: var(--accent);
+  box-shadow: 0 0 16px rgba(61, 181, 169, 0.12);
+}
