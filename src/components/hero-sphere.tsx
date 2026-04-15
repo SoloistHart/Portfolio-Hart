@@ -120,14 +120,12 @@ function Blob({
   scrollProgress,
   mousePos,
   isGrabbed,
-  grabDelta,
-  grabVelocity,
+  grabDeltaRef,
 }: {
   scrollProgress: React.RefObject<number>;
   mousePos: React.RefObject<{ x: number; y: number }>;
   isGrabbed: React.RefObject<boolean>;
-  grabDelta: React.RefObject<{ x: number; y: number }>;
-  grabVelocity: React.RefObject<{ x: number; y: number }>;
+  grabDeltaRef: React.RefObject<{ x: number; y: number }>;
 }) {
   const mesh = useRef<THREE.Mesh>(null);
   const glowMesh = useRef<THREE.Mesh>(null);
@@ -166,12 +164,12 @@ function Blob({
 
     if (grabbed) {
       // grabbed mode — direct rotation from mouse delta, normalized by screen size
-      const dx = grabDelta.current.x * 0.008;
-      const dy = grabDelta.current.y * 0.008;
+      const dx = grabDeltaRef.current.x * 0.008;
+      const dy = grabDeltaRef.current.y * 0.008;
       spinVelocity.current = { x: dy, y: dx };
       baseRotation.current.x += dy;
       baseRotation.current.y += dx;
-      grabDelta.current = { x: 0, y: 0 };
+      grabDeltaRef.current = { x: 0, y: 0 };
 
       // disable gravity pull when grabbed
       mat.uniforms.uAttractStrength.value *= 0.9;
@@ -287,7 +285,6 @@ export function HeroSphere() {
   const mousePos = useRef({ x: 0, y: 0 });
   const isGrabbed = useRef(false);
   const grabDelta = useRef({ x: 0, y: 0 });
-  const grabVelocity = useRef({ x: 0, y: 0 });
   const lastMousePos = useRef({ x: 0, y: 0 });
   const [mounted, setMounted] = useState(false);
   const [grabCursor, setGrabCursor] = useState(false);
@@ -304,7 +301,9 @@ export function HeroSphere() {
     return () => { document.body.style.cursor = ""; };
   }, [grabCursor, mounted]);
 
+  // Hydration-safe mount detection
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -427,8 +426,7 @@ export function HeroSphere() {
           scrollProgress={scrollProgress}
           mousePos={mousePos}
           isGrabbed={isGrabbed}
-          grabDelta={grabDelta}
-          grabVelocity={grabVelocity}
+          grabDeltaRef={grabDelta}
         />
       </Canvas>
     </div>

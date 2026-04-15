@@ -186,7 +186,11 @@ function HolographicHead() {
     );
     const count = posAttr.count;
     const rands = new Float32Array(count);
-    for (let i = 0; i < count; i++) rands[i] = Math.random();
+    // Deterministic pseudo-random per vertex (avoids impure Math.random during render)
+    for (let i = 0; i < count; i++) {
+      const seed = (i * 2654435761) >>> 0;
+      rands[i] = (seed & 0xffff) / 0xffff;
+    }
     pGeo.setAttribute("aRandom", new THREE.BufferAttribute(rands, 1));
 
     // Compute bounding sphere radius for ring sizing
@@ -196,46 +200,39 @@ function HolographicHead() {
     return { headGeo: geo, ptGeo: pGeo, yMin: min, yMax: max, boundRadius: r };
   }, [scene]);
 
-  const wireU = useMemo(
-    () => ({
-      uTime: { value: 0 },
-      uOpacity: { value: 1 },
-      uColor: { value: DARK.primary.clone() },
-      uEdgeColor: { value: DARK.edge.clone() },
-      uYMin: { value: yMin },
-      uYMax: { value: yMax },
-      uPulse: { value: 0 },
-    }),
-    [yMin, yMax],
-  );
+  // R3F uniforms — mutated every frame in useFrame (standard Three.js pattern)
+  // eslint-disable-next-line react-hooks/refs
+  const wireU = useRef({
+    uTime: { value: 0 },
+    uOpacity: { value: 1 },
+    uColor: { value: DARK.primary.clone() },
+    uEdgeColor: { value: DARK.edge.clone() },
+    uYMin: { value: yMin },
+    uYMax: { value: yMax },
+    uPulse: { value: 0 },
+  }).current;
 
-  const glowU = useMemo(
-    () => ({
-      uGlowColor: { value: DARK.glow.clone() },
-      uOpacity: { value: 1 },
-      uPulse: { value: 0 },
-    }),
-    [],
-  );
+  // eslint-disable-next-line react-hooks/refs
+  const glowU = useRef({
+    uGlowColor: { value: DARK.glow.clone() },
+    uOpacity: { value: 1 },
+    uPulse: { value: 0 },
+  }).current;
 
-  const ptU = useMemo(
-    () => ({
-      uTime: { value: 0 },
-      uColor: { value: DARK.edge.clone() },
-      uOpacity: { value: 1 },
-      uPulse: { value: 0 },
-    }),
-    [],
-  );
+  // eslint-disable-next-line react-hooks/refs
+  const ptU = useRef({
+    uTime: { value: 0 },
+    uColor: { value: DARK.edge.clone() },
+    uOpacity: { value: 1 },
+    uPulse: { value: 0 },
+  }).current;
 
-  const ringU = useMemo(
-    () => ({
-      uTime: { value: 0 },
-      uOpacity: { value: 1 },
-      uColor: { value: DARK.primary.clone() },
-    }),
-    [],
-  );
+  // eslint-disable-next-line react-hooks/refs
+  const ringU = useRef({
+    uTime: { value: 0 },
+    uOpacity: { value: 1 },
+    uColor: { value: DARK.primary.clone() },
+  }).current;
 
   const ringRadius = boundRadius * 1.05;
 
@@ -379,7 +376,9 @@ export function HeroHologram() {
     typeof document !== "undefined" &&
     document.documentElement.classList.contains("light");
 
+  // Hydration-safe mount detection
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 

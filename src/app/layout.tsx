@@ -18,17 +18,17 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-hart.local"),
+  metadataBase: new URL("https://portfolio-hart.vercel.app"),
   title: {
-    default: "Rhohart Martel | Full Stack Developer",
+    default: "Rhohart Martel | AI Engineer & Automation Specialist",
     template: "%s | Rhohart Martel",
   },
   description:
-    "Full stack developer specializing in AI integrations, data dashboards, and automation — turning raw data and AI capabilities into tools that drive real business outcomes.",
+    "AI Engineer who builds n8n automation pipelines, AI-powered dashboards, and intelligent business tools — turning manual processes into systems that run themselves.",
   openGraph: {
-    title: "Rhohart Martel | Full Stack Developer",
+    title: "Rhohart Martel | AI Engineer & Automation Specialist",
     description:
-      "Full stack developer specializing in AI integrations, data dashboards, and automation — turning raw data and AI capabilities into tools that drive real business outcomes.",
+      "AI Engineer who builds n8n automation pipelines, AI-powered dashboards, and intelligent business tools — turning manual processes into systems that run themselves.",
     type: "website",
   },
 };

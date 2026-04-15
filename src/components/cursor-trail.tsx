@@ -93,7 +93,7 @@ export function CursorTrail({
         antialias: false,
         preserveDrawingBuffer: false,
       };
-      let glCtx =
+      const glCtx =
         (cvs.getContext("webgl2", params) as WebGL2RenderingContext | null) ||
         (cvs.getContext("webgl", params) as WebGLRenderingContext | null) ||
         (cvs.getContext("experimental-webgl", params) as WebGLRenderingContext | null);
@@ -182,7 +182,6 @@ export function CursorTrail({
       return status === glCtx.FRAMEBUFFER_COMPLETE;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     type Uniforms = Record<string, WebGLUniformLocation | null>;
 
     class Material {
