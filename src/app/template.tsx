@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 
@@ -10,10 +10,15 @@ let mountCount = 0;
 export default function Template({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isFirstMount = useRef(mountCount === 0);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     mountCount++;
   }, []);
+
+  if (prefersReducedMotion) {
+    return <>{children}</>;
+  }
 
   return (
     <motion.div

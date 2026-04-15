@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface SplashCursorProps {
   SIM_RESOLUTION?: number;
@@ -37,8 +37,16 @@ export function CursorTrail({
 }: SplashCursorProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameId = useRef<number | null>(null);
+  const [isPointerDevice, setIsPointerDevice] = useState(false);
 
   useEffect(() => {
+    const hasPointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setIsPointerDevice(hasPointer && !prefersReducedMotion);
+  }, []);
+
+  useEffect(() => {
+    if (!isPointerDevice) return;
     const canvasEl = canvasRef.current;
     if (!canvasEl) return;
     // Safe to use non-null from here — we've already checked
@@ -1039,7 +1047,9 @@ export function CursorTrail({
       window.removeEventListener("touchend", handleTouchEnd);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isPointerDevice]);
+
+  if (!isPointerDevice) return null;
 
   return (
     <div className="pointer-events-none fixed inset-0 z-50" aria-hidden="true">

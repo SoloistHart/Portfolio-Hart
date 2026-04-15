@@ -34,7 +34,7 @@ export function SiteHeader() {
               {siteContent.brand.name}
             </span>
             <span className="block text-xs text-muted">
-              {siteContent.brand.role}
+              {siteContent.brand.shortRole}
             </span>
           </span>
         </Link>

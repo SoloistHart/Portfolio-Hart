@@ -170,8 +170,11 @@ export function PortfolioChat() {
 
                 {pending ? (
                   <div className="flex justify-start">
-                    <div className="rounded-2xl bg-surface px-3.5 py-3 text-sm text-muted ring-1 ring-line">
-                      Thinking through the portfolio...
+                    <div className="flex items-center gap-1.5 rounded-2xl bg-surface px-4 py-3.5 ring-1 ring-line">
+                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted [animation-delay:0ms]" />
+                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted [animation-delay:150ms]" />
+                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted [animation-delay:300ms]" />
+                      <span className="sr-only">Thinking…</span>
                     </div>
                   </div>
                 ) : null}

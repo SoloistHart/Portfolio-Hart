@@ -4,34 +4,24 @@
 
 ## Project state
 - Build: ✅ passes (Next.js 16.2.1 Turbopack)
-- All 10 routes generate: 7 static, 3 SSG (`/projects/[slug]`), 1 dynamic (`/api/chat`)
-- Deploy target: unknown — `metadataBase` still points to `https://portfolio-hart.local`
+- All 11 routes generate: 7 static, 3 SSG (`/projects/[slug]`), 1 dynamic (`/api/chat`), 1 sitemap
+- Deployed: https://portfolio-hart.vercel.app (auto-deploys on push)
+- Lint: ✅ 0 errors, 0 warnings
+- SEO: robots.txt, sitemap.xml, aligned metadata
 
-## Known issues
+## Resolved issues (session 2026-04-15)
+- 17 lint errors → 0 (React 19 strict mode fixes, R3F eslint-disable where needed)
+- Metadata aligned: title, description match AI Engineer branding
+- robots.txt and sitemap.ts added
+- Header shortRole field added (concise brand pill)
+- prefers-reduced-motion: reveal.tsx, template.tsx, scroll-progress.tsx, cursor-trail.tsx
+- cursor-trail.tsx: desktop-only (pointer: fine + hover: hover)
+- contact-form.tsx: role="alert" on error messages
+- portfolio-chat.tsx: animated typing dots indicator (replaces plain text)
 
-### Lint errors (17 errors, 2 warnings)
-
-**reveal.tsx:33** — reads `hasPlayed.current` ref during render. React 19 strict rules forbid this.
-
-**theme-toggle.tsx:25** — `setState` (setTheme) called synchronously inside useEffect. Cascading render.
-
-**hero-hologram.tsx:189** — `Math.random()` during render (impure function). Move to useMemo or useRef init.
-
-**hero-hologram.tsx:249-260+** — mutating useMemo uniform values inside useFrame. Standard R3F pattern but flagged by React 19 rules. Consider using useRef for uniforms or eslint-disable for R3F-specific code.
-
-**cursor-trail.tsx:96** — `glCtx` should be `const` not `let`.
-
-**cursor-trail.tsx:185** — unused eslint-disable directive.
-
-### Metadata mismatch
-- `layout.tsx` title says "Full Stack Developer"
-- `portfolio-data.ts` hero/brand says "AI Engineer & Automation Specialist"
-- These should be aligned for SEO consistency
-
-### Missing SEO files
-- No `robots.txt` in public/
-- No `sitemap.xml` generated or static
-- No OG images
+## Known remaining items
+- No OG images (social sharing cards)
+- metadataBase uses Vercel URL — update if custom domain added
 
 ## Architecture notes
 - Content centralized in `src/lib/portfolio-data.ts` — changes there affect all routes

@@ -33,6 +33,7 @@ export const siteContent = {
     name: "Rhohart Martel",
     profileImage: "/grad-pic.jpg",
     role: "AI Engineer — workflow automation, intelligent tools, and business process systems",
+    shortRole: "AI Engineer & Automation",
     availability: "Available for freelance projects and client engagements",
     location: "Manila, Philippines — open to remote work globally",
   },
