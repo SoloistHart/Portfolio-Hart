@@ -43,3 +43,9 @@ next-env.d.ts
 
 #github agents
 .github/
+.github-tool/
+
+# Environment files
+.env.*
+!.env.example
+

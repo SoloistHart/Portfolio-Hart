@@ -7,7 +7,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "pr:ai:main": "node github-tool/ai-pr.mjs --base main",
+    "commit:ai": "node github-tool/ai-commit.mjs",
+    "pr:ai:dev": "node github-tool/ai-pr.mjs --base dev",
+    "pr:ai": "node github-tool/ai-pr.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
