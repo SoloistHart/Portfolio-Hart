@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import type { ReactNode } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef, type ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
@@ -14,15 +14,23 @@ export function Reveal({
   className,
   delay = 0,
 }: RevealProps) {
+  const ref = useRef(null);
+  const hasPlayed = useRef(false);
+  const isInView = useInView(ref, { once: false, amount: 0.15 });
+
+  if (isInView && !hasPlayed.current) {
+    hasPlayed.current = true;
+  }
+
   return (
     <motion.div
+      ref={ref}
       className={className}
-      initial={false}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.22 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0 }}
       transition={{
-        duration: 0.7,
-        delay,
+        duration: isInView ? 0.7 : 0.3,
+        delay: !hasPlayed.current && isInView ? delay : 0,
         ease: [0.16, 1, 0.3, 1],
       }}
     >

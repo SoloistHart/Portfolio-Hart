@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, Sora } from "next/font/google";
 import "./globals.css";
 
+import { PortfolioChat } from "@/components/portfolio-chat";
+import { ScrollProgress } from "@/components/scroll-progress";
+import { CursorTrail } from "@/components/cursor-trail";
+
 const sora = Sora({
   variable: "--font-sora",
   subsets: ["latin"],
@@ -16,15 +20,15 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-hart.local"),
   title: {
-    default: "Hart | Portfolio",
-    template: "%s | Hart",
+    default: "Rhohart Martel | Full Stack Developer",
+    template: "%s | Rhohart Martel",
   },
   description:
-    "A premium portfolio foundation for Hart, built around clear storytelling today and a future Three.js hero tomorrow.",
+    "Full stack developer specializing in AI integrations, data dashboards, and automation — turning raw data and AI capabilities into tools that drive real business outcomes.",
   openGraph: {
-    title: "Hart | Portfolio",
+    title: "Rhohart Martel | Full Stack Developer",
     description:
-      "A premium portfolio foundation for Hart, built around clear storytelling today and a future Three.js hero tomorrow.",
+      "Full stack developer specializing in AI integrations, data dashboards, and automation — turning raw data and AI capabilities into tools that drive real business outcomes.",
     type: "website",
   },
 };
@@ -37,10 +41,24 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${sora.variable} ${plexMono.variable} h-full scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <script
+        >
+          {`(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.classList.add(t)}catch(e){}})()`}
+        </script>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-foreground focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-background"
+        >
+          Skip to content
+        </a>
+        <ScrollProgress />
+        <CursorTrail />
         {children}
+        <PortfolioChat />
       </body>
     </html>
   );

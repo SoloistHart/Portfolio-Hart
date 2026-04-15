@@ -15,6 +15,38 @@
   --shadow-md: 0 20px 48px rgba(12, 23, 34, 0.1);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --background: #0e171f;
+    --foreground: #e8e2d9;
+    --muted: #8a9199;
+    --surface: rgba(255, 255, 255, 0.06);
+    --surface-strong: rgba(255, 255, 255, 0.10);
+    --line: rgba(255, 255, 255, 0.10);
+    --line-strong: rgba(255, 255, 255, 0.16);
+    --accent: #3db5a9;
+    --accent-soft: rgba(61, 181, 169, 0.15);
+    --accent-warm: #d9985c;
+    --shadow-lg: 0 32px 80px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 20px 48px rgba(0, 0, 0, 0.28);
+  }
+}
+
+:root.dark {
+  --background: #0e171f;
+  --foreground: #e8e2d9;
+  --muted: #8a9199;
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-strong: rgba(255, 255, 255, 0.10);
+  --line: rgba(255, 255, 255, 0.10);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --accent: #3db5a9;
+  --accent-soft: rgba(61, 181, 169, 0.15);
+  --accent-warm: #d9985c;
+  --shadow-lg: 0 32px 80px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 20px 48px rgba(0, 0, 0, 0.28);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -36,6 +68,19 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light dark;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, fill 0.4s ease, stroke 0.4s ease !important;
 }
 
 body {
@@ -48,17 +93,18 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) body {
+    background:
+      radial-gradient(circle at top center, rgba(255, 255, 255, 0.03), transparent 34%),
+      linear-gradient(180deg, #111c26 0%, #0e171f 34%, #0b1218 100%);
+  }
+}
+
+:root.dark body {
   background:
-    linear-gradient(rgba(18, 32, 43, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(18, 32, 43, 0.04) 1px, transparent 1px);
-  background-size: 96px 96px;
-  mask-image: radial-gradient(circle at center, black 36%, transparent 82%);
+    radial-gradient(circle at top center, rgba(255, 255, 255, 0.03), transparent 34%),
+    linear-gradient(180deg, #111c26 0%, #0e171f 34%, #0b1218 100%);
 }
 
 body::after {
@@ -73,6 +119,24 @@ body::after {
     radial-gradient(circle at 82% 16%, rgba(207, 138, 84, 0.18), transparent 22%),
     radial-gradient(circle at 74% 76%, rgba(30, 77, 112, 0.16), transparent 26%);
   filter: blur(16px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) body::after {
+    opacity: 0.35;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(61, 181, 169, 0.14), transparent 24%),
+      radial-gradient(circle at 82% 16%, rgba(217, 152, 92, 0.12), transparent 22%),
+      radial-gradient(circle at 74% 76%, rgba(30, 77, 112, 0.14), transparent 26%);
+  }
+}
+
+:root.dark body::after {
+  opacity: 0.35;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(61, 181, 169, 0.14), transparent 24%),
+    radial-gradient(circle at 82% 16%, rgba(217, 152, 92, 0.12), transparent 22%),
+    radial-gradient(circle at 74% 76%, rgba(30, 77, 112, 0.14), transparent 26%);
 }
 
 main {
@@ -111,6 +175,15 @@ button:focus-visible {
   padding-inline: 1.5rem;
 }
 
+.scrollbar-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 .panel {
   background: var(--surface);
   backdrop-filter: blur(20px);
@@ -122,6 +195,7 @@ button:focus-visible {
   background: var(--surface-strong);
   backdrop-filter: blur(20px);
   border: 1px solid var(--line-strong);
+  border-top: 2px solid var(--accent);
   box-shadow: var(--shadow-lg);
 }
 
@@ -131,7 +205,7 @@ button:focus-visible {
   font-weight: 500;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(18, 32, 43, 0.56);
+  color: var(--accent);
 }
 
 .button-primary {
@@ -141,14 +215,14 @@ button:focus-visible {
   gap: 0.75rem;
   border-radius: 999px;
   padding: 0.95rem 1.4rem;
-  background: #12202b;
-  color: #f8f4ed;
+  background: var(--foreground);
+  color: var(--background);
   box-shadow: 0 16px 30px rgba(18, 32, 43, 0.18);
 }
 
 .button-primary:hover {
   transform: translateY(-1px);
-  background: #0d1720;
+  opacity: 0.9;
 }
 
 .button-secondary {
@@ -159,14 +233,13 @@ button:focus-visible {
   border-radius: 999px;
   padding: 0.95rem 1.4rem;
   border: 1px solid var(--line-strong);
-  background: rgba(255, 255, 255, 0.58);
+  background: var(--surface);
   color: var(--foreground);
-  backdrop-filter: blur(16px);
 }
 
 .button-secondary:hover {
   transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.78);
+  background: var(--surface-strong);
 }
 
 .chip {
@@ -174,13 +247,13 @@ button:focus-visible {
   align-items: center;
   gap: 0.5rem;
   border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--line-strong);
+  background: var(--surface-strong);
   padding: 0.5rem 0.85rem;
   font-family: var(--font-plex-mono), monospace;
   font-size: 0.73rem;
   letter-spacing: 0.08em;
-  color: rgba(18, 32, 43, 0.74);
+  color: var(--foreground);
 }
 
 .hero-stage {
@@ -235,6 +308,22 @@ button:focus-visible {
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(18px);
+}
+
+.contribution-chart {
+  opacity: 0.92;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .contribution-chart {
+    filter: invert(0.88) hue-rotate(180deg);
+    opacity: 0.85;
+  }
+}
+
+:root.dark .contribution-chart {
+  filter: invert(0.88) hue-rotate(180deg);
+  opacity: 0.85;
 }
 
 .metric-divider {

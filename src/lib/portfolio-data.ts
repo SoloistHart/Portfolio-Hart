@@ -30,118 +30,198 @@ export type Project = {
 
 export const siteContent = {
   brand: {
-    name: "Hart",
-    role: "Creative developer and experience designer",
-    availability: "Available for selective brand, product, and launch work",
-    location: "Remote base, global collaborations",
+    name: "Rhohart Martel",
+    profileImage: "/grad-pic.jpg",
+    role: "AI Engineer — workflow automation, intelligent tools, and business process systems",
+    availability: "Available for freelance projects and client engagements",
+    location: "Manila, Philippines — open to remote work globally",
   },
   hero: {
-    eyebrow: "Motion-led portfolio",
-    title: "Designing digital experiences that feel deliberate from the first frame.",
+    eyebrow: "AI Engineer & Automation Specialist",
+    title: "I help businesses integrate AI and automate workflows that scale.",
     description:
-      "Hart pairs narrative clarity with premium motion, building a portfolio that earns trust now and leaves room for a future Three.js hero when the moment is right.",
+      "AI Engineer who builds n8n automation pipelines, AI-powered dashboards, and intelligent business tools — turning manual processes into systems that run themselves.",
     chips: [
-      "Narrative-first",
-      "Motion with purpose",
-      "Three.js-ready hero",
+      "n8n workflow automation",
+      "AI integrations",
+      "Business process automation",
+      "Intelligent dashboards",
+      "End-to-end execution",
+    ],
+  },
+  chatbot: {
+    label: "Ask about my work",
+    title: "Portfolio AI guide",
+    description:
+      "Ask about my AI integrations, n8n automations, dashboards, and how I can help your business.",
+    starterPrompts: [
+      "What kind of AI engineer is Rhohart?",
+      "How can he automate my business workflows?",
+      "Which project best shows AI integration?",
+      "What n8n automations has he built?",
     ],
   },
   stats: [
     {
-      label: "Focus",
-      value: "Immersive storytelling with calm, credible structure",
+      label: "AI & Automation",
+      value: "n8n workflows, OpenAI, Claude, Gemini — 30+ automations built and deployed",
     },
     {
-      label: "Structure",
-      value: "Home experience plus dedicated project narratives",
+      label: "Stack",
+      value: "React, Next.js, Node.js, TypeScript, PostgreSQL, Prisma",
     },
     {
-      label: "Future layer",
-      value: "A reserved hero stage for a custom Three.js scene",
+      label: "Impact",
+      value: "50% collection rate improvement on a deployed analytics campaign",
     },
     {
-      label: "Growth path",
-      value: "Ready for AI chat, extra pages, and modular sections",
+      label: "Education",
+      value: "BS Information Technology, Data Science — Cum Laude",
     },
   ],
   futureModules: [
     {
-      title: "A calm premium base today",
-      text: "The foundation keeps hierarchy, copy, and case-study storytelling sharp before any heavier visual experiments arrive.",
-      label: "Current mode",
+      title: "AI integration for your business",
+      text: "From AI-powered dashboards to intelligent chatbots and agent workflows — I build AI tools that fit your existing operations and solve real problems.",
+      label: "AI solutions",
     },
     {
-      title: "A dedicated Three.js hero tomorrow",
-      text: "The homepage already reserves visual real estate for a future interactive scene, so the upgrade feels intentional instead of bolted on.",
-      label: "Future scene",
+      title: "n8n workflow automation",
+      text: "30+ n8n workflows built and deployed. I automate content pipelines, data processing, multi-platform publishing, and operational workflows that eliminate manual effort.",
+      label: "Automation",
     },
     {
-      title: "Modular enough to keep growing",
-      text: "New project pages, an AI guide, and extra storytelling sections can slot into the system without forcing a redesign.",
-      label: "Scale path",
+      title: "Intelligent dashboards & reporting",
+      text: "Executive-facing analytics, behavioral insights, and KPI systems that turn your raw data into actionable business intelligence.",
+      label: "Data tools",
     },
   ],
   principles: [
     {
-      title: "Start with clarity",
-      text: "Visitors should understand the point of view before the effects begin.",
+      title: "AI should solve real business problems",
+      text: "Not AI for its own sake — integrations that reduce manual effort, improve accuracy, and create value your team can measure.",
     },
     {
-      title: "Use motion with intent",
-      text: "Movement should sharpen the story, not compete with it.",
+      title: "Automation should free your team",
+      text: "Every workflow I build is designed to eliminate repetitive tasks so your team can focus on work that actually moves the needle.",
     },
     {
-      title: "Leave room for evolution",
-      text: "The best portfolios can absorb new ideas without collapsing their own identity.",
+      title: "Systems should scale with you",
+      text: "From n8n pipelines to dashboard architecture, everything is built modular — ready to grow without needing a rebuild.",
     },
   ],
   contact: {
-    title: "Ready to shape the next version?",
+    title: "Let's automate and build smarter.",
     description:
-      "Use this foundation as the launchpad, then refine the copy, replace the placeholder work, and drop in a future Three.js opener when the portfolio story is ready for it.",
-    email: "hello@yourdomain.com",
+      "Whether it's an AI integration, n8n automation pipeline, or an intelligent dashboard — I'm ready to help your business work faster and scale further.",
+    email: "martel.rhohart@gmail.com",
+  },
+  socials: [
+    { label: "GitHub", href: "https://github.com/SoloistHart" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/rhohart-martel-4798ab307" },
+  ],
+  about: {
+    headline: "Rhohart Martel",
+    summary:
+      "AI Engineer and workflow automation specialist who helps businesses integrate AI and automate operations. I build n8n automation pipelines, AI-powered dashboards, and intelligent business tools — turning manual processes into scalable systems that deliver measurable results.",
+    education: {
+      degree: "BS Information Technology, Major in Data Science",
+      school: "Universidad De Manila",
+      graduationDate: "Jul 2025",
+      honors: "Cum Laude",
+    },
+    skills: [
+      { category: "AI & Automation", items: ["n8n Workflow Design", "OpenAI", "Claude", "Gemini", "Prompt Engineering", "AI Agent Development", "Workflow Orchestration"] },
+      { category: "Business Process", items: ["Process Optimization", "Workflow Design", "Operational Efficiency", "System Integration"] },
+      { category: "Frontend", items: ["React", "Next.js", "Tailwind CSS", "Responsive UI"] },
+      { category: "Backend", items: ["Node.js", "REST APIs", "Prisma", "TypeScript"] },
+      { category: "Databases", items: ["PostgreSQL", "MySQL", "MariaDB"] },
+      { category: "Analytics & Tools", items: ["Dashboard Development", "Behavioral Analytics", "KPI Reporting", "Data Visualization", "Git", "GitHub", "VS Code"] },
+    ],
+    experience: [
+      {
+        role: "Freelance AI & Automation Engineer",
+        company: "Self-Employed",
+        period: "Nov 2025 – Present",
+        highlights: [
+          "Built 30+ personalized n8n automation workflows for clients across multiple accounts and platforms.",
+          "Automated short-form content production pipelines including AI-powered script generation, image creation, and video assembly.",
+          "Designed modular workflow architectures that scale with new content formats, platforms, and AI tools.",
+        ],
+      },
+      {
+        role: "Full Stack Developer — AI Integrations",
+        company: "S.P. Madrid & Associates",
+        period: "Dec 2025 – Present",
+        highlights: [
+          "Build AI-integrated dashboards and reporting systems that transform QA and operational data into executive-ready insights.",
+          "Develop AI-powered tools for behavioral analytics, coaching support, and productivity monitoring.",
+          "Create data visualizations and reporting interfaces for performance trends and business-critical metrics.",
+          "Guide intern contributors on AI-related projects including OpenClaw and LarkChat integrations.",
+        ],
+      },
+      {
+        role: "AI Media / Prompt Engineer",
+        company: "S.P. Madrid & Associates",
+        period: "Oct 2025 – Dec 2025",
+        highlights: [
+          "Created AI-powered media assets and character workflows for Okpo.com.",
+          "Designed prompt workflows and AI agent behavior for lead generation use cases.",
+          "Evaluated and selected text, image, voice, and video AI tools for business fit.",
+        ],
+      },
+      {
+        role: "Data Analyst",
+        company: "S.P. Madrid & Associates",
+        period: "Jul 2025 – Oct 2025",
+        highlights: [
+          "Converted existing company data into clearer reporting outputs and operational insights.",
+          "Helped structure data used in later dashboarding and QA performance analysis initiatives.",
+        ],
+      },
+    ],
   },
 } as const;
 
 export const projects: Project[] = [
   {
-    slug: "northstar-platform",
-    label: "Data platform reframe",
-    title: "Northstar Platform",
+    slug: "qa-behavioral-analytics",
+    label: "AI-powered QA analytics",
+    title: "QA AI: Behavioral Analytics",
     summary:
-      "A denser analytics workspace reshaped into a clearer product story, with calmer navigation, stronger pacing, and more confident visual rhythm.",
-    previewTagline: "Dense product, lighter story.",
-    year: "Current concept",
-    client: "Product-led team",
-    category: "Narrative UX and interface direction",
-    impact: "Turns complexity into a sharper first impression without losing capability.",
-    tags: ["Product story", "Interface pacing", "Motion cues"],
+      "A behavioral analytics dashboard that turns uploaded call datasets into agent-level KPIs, coaching insights, and AI-powered performance analysis — with PII redaction baked in.",
+    previewTagline: "Call data into coaching insights.",
+    year: "2025–2026",
+    client: "S.P. Madrid & Associates",
+    category: "Full stack dashboard with AI integration",
+    impact: "Helped improve collection rate by 50% in one deployed campaign while supporting script-adherence analysis for agent coaching.",
+    tags: ["React", "Node.js", "PostgreSQL", "Recharts", "AI coaching"],
     deliverables: [
-      "Story-led landing structure",
-      "Modular analytics surface",
-      "Reusable section system",
-      "Future motion blueprint",
+      "Agent-level KPI dashboard with drilldowns",
+      "Filtered data exports and CSV/XLSX import",
+      "AI-powered coaching insight workflows",
+      "PII redaction pipeline before AI processing",
     ],
     highlights: [
-      { label: "Scope", value: "Narrative, interface, motion" },
-      { label: "Mode", value: "Calm premium clarity" },
-      { label: "Result", value: "Sharper product positioning" },
+      { label: "Stack", value: "React, Vite, Node.js, PostgreSQL" },
+      { label: "AI layer", value: "Coaching insights with PII safety" },
+      { label: "Result", value: "50% collection rate improvement" },
     ],
     sections: [
       {
         title: "Challenge",
         copy:
-          "The workspace had plenty of depth, but its first impression felt colder and heavier than the product deserved. The goal was to make the experience feel more human without stripping away substance.",
+          "QA teams had raw call datasets in CSV and XLSX format but no structured way to surface agent behavior patterns, identify coaching opportunities, or track performance over time.",
       },
       {
         title: "Response",
         copy:
-          "The new direction introduces cleaner rhythm, quieter supporting detail, and motion moments that explain where attention should go next instead of overwhelming the interface.",
+          "Built a full analytics dashboard with agent-level KPI views, drilldown filters, and AI-powered coaching workflows. Added PII redaction and context validation before any data reached external AI services.",
       },
       {
         title: "Why it holds up",
         copy:
-          "Because the structure is modular, richer dashboards and future interactive layers can arrive later without breaking the main narrative arc.",
+          "The modular architecture handles new data sources and metric types without structural changes, and the PII-safe pipeline keeps the system production-ready as AI capabilities expand.",
       },
     ],
     palette: {
@@ -154,43 +234,92 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "aster-launch-system",
-    label: "Launch site direction",
-    title: "Aster Launch System",
+    slug: "qa-productivity-dashboard",
+    label: "Executive productivity reporting",
+    title: "QA AI: Overall Productivity",
     summary:
-      "A premium launch story built around tension, release, and sharper hierarchy, giving a growing brand a more mature digital presence.",
-    previewTagline: "A launch page with backbone.",
-    year: "Current concept",
-    client: "Brand and marketing team",
-    category: "Brand storytelling and launch UX",
-    impact: "Moves the brand from simply polished to memorable and better paced.",
-    tags: ["Brand pacing", "Editorial hierarchy", "Launch system"],
+      "An executive-facing productivity dashboard that translates internal QA audit data into actionable metrics, trend analysis, and team-level performance tracking for C-level stakeholders.",
+    previewTagline: "Raw audits into executive clarity.",
+    year: "2025–2026",
+    client: "S.P. Madrid & Associates",
+    category: "Full stack dashboard with data visualization",
+    impact: "Improved visibility into QA system performance by translating raw database records into business-readable insights used across leadership and operations.",
+    tags: ["Next.js", "TypeScript", "Prisma", "MariaDB", "Data viz"],
     deliverables: [
-      "Narrative homepage arc",
-      "Editorial component kit",
-      "Campaign-ready feature blocks",
-      "Premium call-to-action moments",
+      "Executive overview metrics and KPI cards",
+      "Trend analysis with weekly and monthly tracking",
+      "Filtered breakdowns and ranking views",
+      "Role-based data access for C-level and team leads",
     ],
     highlights: [
-      { label: "Scope", value: "Brand, layout, CTA rhythm" },
-      { label: "Mode", value: "Warm futuristic editorial" },
-      { label: "Result", value: "More distinct brand posture" },
+      { label: "Stack", value: "Next.js, TypeScript, Prisma, MariaDB" },
+      { label: "Audience", value: "C-level and operations teams" },
+      { label: "Result", value: "Business-readable QA insights" },
     ],
     sections: [
       {
         title: "Challenge",
         copy:
-          "The team needed a site that felt elevated enough for a major launch but disciplined enough to remain usable long after the announcement cycle ended.",
+          "Internal QA audit data lived in raw database records with no structured reporting layer. Leadership needed actionable visibility into team performance without digging through spreadsheets.",
       },
       {
         title: "Response",
         copy:
-          "The concept uses large-format typography, measured spacing, and warmer accent tones to build a stronger sense of point of view without losing conversion clarity.",
+          "Built an executive-facing dashboard with overview metrics, trend analysis, filtered breakdowns, and ranking views — turning operational data into reports that stakeholders could act on immediately.",
       },
       {
         title: "Why it holds up",
         copy:
-          "The visual language is expressive, but each section still behaves like part of a reusable system, making later campaign refreshes easier to ship.",
+          "The Prisma-backed data layer and modular report components mean new metrics and breakdowns can be added without rearchitecting the system. The dashboard scales with the team.",
+      },
+    ],
+    palette: {
+      surface: "#1a1a2e",
+      depth: "#0d0d1a",
+      glow: "rgba(130, 120, 230, 0.36)",
+      accent: "#a8a0f0",
+      accentSoft: "rgba(168, 160, 240, 0.18)",
+      line: "rgba(220, 216, 255, 0.16)",
+    },
+  },
+  {
+    slug: "n8n-automation-workflows",
+    label: "Content automation at scale",
+    title: "n8n Automation Workflows",
+    summary:
+      "30+ personalized automation workflows for a single client, automating short-form content production from script generation through video creation and multi-platform publishing.",
+    previewTagline: "Manual pipelines, fully automated.",
+    year: "2025–present",
+    client: "Freelance client",
+    category: "Workflow automation and orchestration",
+    impact: "Reduced manual content creation effort by systemizing repeatable multi-step processes into reusable automation flows across multiple accounts and platforms.",
+    tags: ["n8n", "Automation", "AI pipelines", "Content ops", "Multi-platform"],
+    deliverables: [
+      "30+ custom n8n automation workflows",
+      "Script generation and AI content pipelines",
+      "Image and video production automation",
+      "Cross-platform publishing orchestration",
+    ],
+    highlights: [
+      { label: "Scale", value: "30+ workflows, multiple platforms" },
+      { label: "Pipeline", value: "Script → image → video → publish" },
+      { label: "Result", value: "Fully automated content ops" },
+    ],
+    sections: [
+      {
+        title: "Challenge",
+        copy:
+          "The client was creating short-form content manually across multiple accounts and platforms — each piece requiring scripting, image sourcing, video editing, and platform-specific publishing steps.",
+      },
+      {
+        title: "Response",
+        copy:
+          "Designed and built 30+ n8n workflows covering the full production pipeline: AI-powered script generation, automated image creation, video assembly, and orchestrated multi-platform distribution.",
+      },
+      {
+        title: "Why it holds up",
+        copy:
+          "Each workflow is modular and reusable. New content formats, platforms, or AI tools can be plugged into the existing pipeline without rebuilding the automation from scratch.",
       },
     ],
     palette: {
@@ -200,55 +329,6 @@ export const projects: Project[] = [
       accent: "#f7c290",
       accentSoft: "rgba(247, 194, 144, 0.18)",
       line: "rgba(255, 237, 224, 0.16)",
-    },
-  },
-  {
-    slug: "signal-concierge",
-    label: "Guided partner journey",
-    title: "Signal Concierge",
-    summary:
-      "A concept for a guided product experience that feels helpful instead of noisy, combining trust-building copy with space for a future AI layer.",
-    previewTagline: "Prepared for an AI guide later.",
-    year: "Current concept",
-    client: "Service and partnerships team",
-    category: "Journey design and future AI readiness",
-    impact: "Creates a clearer path from curiosity to confidence while keeping the experience modular.",
-    tags: ["Guided flow", "Trust signals", "AI-ready structure"],
-    deliverables: [
-      "Guided inquiry path",
-      "Modular conversation prompts",
-      "Flexible partner proof blocks",
-      "Future chatbot stage mapping",
-    ],
-    highlights: [
-      { label: "Scope", value: "Journey, copy, future AI layer" },
-      { label: "Mode", value: "Guided and confident" },
-      { label: "Result", value: "Lower-friction first contact" },
-    ],
-    sections: [
-      {
-        title: "Challenge",
-        copy:
-          "Prospective partners needed more context before reaching out, but the experience could not feel like a wall of explanations or a maze of options.",
-      },
-      {
-        title: "Response",
-        copy:
-          "The structure introduces guided prompts, clearer proof moments, and space for an AI helper later, without making the current version depend on that future feature.",
-      },
-      {
-        title: "Why it holds up",
-        copy:
-          "The current build already communicates trust and direction, while the architecture leaves room for a smarter assistant to plug in when the product is ready.",
-      },
-    ],
-    palette: {
-      surface: "#0f2029",
-      depth: "#081116",
-      glow: "rgba(101, 212, 191, 0.38)",
-      accent: "#8ef1d1",
-      accentSoft: "rgba(142, 241, 209, 0.16)",
-      line: "rgba(230, 255, 249, 0.16)",
     },
   },
 ];

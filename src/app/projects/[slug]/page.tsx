@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { ProjectPreview } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import { getProject, projects } from "@/lib/portfolio-data";
 import { notFound } from "next/navigation";
 
@@ -50,7 +51,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <>
       <SiteHeader />
 
-      <main className="relative overflow-hidden pb-20 pt-28 sm:pt-32">
+      <main id="main" className="relative overflow-hidden pb-20 pt-28 sm:pt-32">
         <section className="page-shell">
           <Reveal>
             <Link
@@ -119,13 +120,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <Reveal>
               <div className="max-w-lg">
-                <p className="section-kicker">Project narrative</p>
+                <p className="section-kicker">Case study</p>
                 <h2 className="mt-5 text-4xl font-semibold tracking-[-0.06em] text-foreground sm:text-5xl">
-                  What the work is solving and why the system stays flexible.
+                  The challenge, the build, and why it holds up.
                 </h2>
-                <p className="mt-5 text-base leading-8 text-muted sm:text-lg">
-                  These sections frame the problem, the direction, and the reason the concept can keep evolving instead of becoming a one-off visual exercise.
-                </p>
               </div>
             </Reveal>
 
@@ -201,6 +199,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </Reveal>
         </section>
       </main>
+
+      <SiteFooter />
     </>
   );
 }
